@@ -1,5 +1,6 @@
 let collideBoxes
 let platforms;
+let decorations;
 
 let cameraPosition;
 
@@ -12,10 +13,12 @@ function preload() {
     player: loadImage("Images/player.png"),
     background: loadImage("Images/background.jpg"),
     platform1: loadImage("Images/platform1.png"),
-    platform2: loadImage("Images/platform2.png")
+    platform2: loadImage("Images/platform2.png"),
+    brickwall: loadImage("Images/brickwall.png")
   }
   collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
   platforms = generatePlatforms();
+  decorations = generateDecorations();
 }
 
 function setup() {
@@ -34,6 +37,10 @@ function draw() {
   let platform;
   for (platform of platforms) {
     platform.draw(cameraPosition);
+  }
+  let decoration;
+  for (decoration of decorations) {
+    decoration.draw(cameraPosition);
   }
 }
 
