@@ -10,6 +10,7 @@ let images;
 function preload() {
   images = {
     player: loadImage("Images/player.png"),
+    background: loadImage("Images/background.jpg"),
     platform1: loadImage("Images/platform1.png")
   }
   collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
@@ -24,7 +25,8 @@ function setup() {
 }
 
 function draw() {
-  background(200);
+  imageMode(CORNER);
+  image(images.background, 0, 0, 800, 500);
   
   player.update(cameraPosition);
   
@@ -81,7 +83,7 @@ class Entity extends Sprite {
         }
         this.vel.y = 0;
       }
-      if (this.isCollidingY(oldPos.y, this.size.y, index)) {
+      else if (this.isCollidingY(oldPos.y, this.size.y, index)) {
         if (this.vel.x < 0) {
           this.pos.x = collideBoxes[index].pos.x+collideBoxes[index].size.x;
         }
