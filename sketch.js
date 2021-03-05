@@ -20,7 +20,7 @@ function setup() {
   createCanvas(800,500);
   cameraPosition = createVector(0, 0);
   
-  player = new Player(100, 400, 50, 50, images.player, 0.1, 6, 3);
+  player = new Player(100, 400, 50, 50, images.player, 0.15, 8, 3);
 }
 
 function draw() {
