@@ -12,7 +12,7 @@ function preload() {
     player: loadImage("Images/player.png"),
     platform1: loadImage("Images/platform1.png")
   }
-  collideBoxes = [new CollideBox(-1000, 500, 2000, 100), new CollideBox(-100, -1000, 100, 1800)];
+  collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
   platforms = generatePlatforms();
 }
 
@@ -20,7 +20,7 @@ function setup() {
   createCanvas(800,500);
   cameraPosition = createVector(0, 0);
   
-  player = new Player(100, 400, 50, 50, images.player, 0.15, 8, 3);
+  player = new Player(250, 400, 20, 20, images.player, 0.3, 7, 2.4);
 }
 
 function draw() {
@@ -47,7 +47,7 @@ class Sprite {
   draw(cameraPos) {
     push();
     imageMode(CORNER);
-    image(this.img, this.pos.x+cameraPos.x, this.pos.y+cameraPos.y, this.size.x, this.size.y);
+    image(this.img, this.pos.x-cameraPos.x, this.pos.y+cameraPos.y, this.size.x, this.size.y);
     pop();
   }
 }
@@ -224,11 +224,13 @@ class Player extends Entity {
     //LEFT
     if (keyIsDown(81) || keyIsDown(65)) {
       this.vel.x = -this.speed;
+      cameraPosition.x -= this.speed;
       moving = true;
     }
     //RIGHT
     if (keyIsDown(68)) {
       this.vel.x = this.speed;
+      cameraPosition.x += this.speed;
       moving = true;
     }
 
