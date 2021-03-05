@@ -208,7 +208,14 @@ class Player extends Entity {
   }
   
   update(cameraPos) {
+    //Store old x
+    var oldx = this.pos.x; 
+    
     this.moveUpdate();
+    
+    //Move camera
+    cameraPosition.x += this.pos.x - oldx;
+    
     this.keyboardEventUpdate();
     this.draw(cameraPos);
   }
@@ -224,13 +231,11 @@ class Player extends Entity {
     //LEFT
     if (keyIsDown(81) || keyIsDown(65)) {
       this.vel.x = -this.speed;
-      cameraPosition.x -= this.speed;
       moving = true;
     }
     //RIGHT
     if (keyIsDown(68)) {
       this.vel.x = this.speed;
-      cameraPosition.x += this.speed;
       moving = true;
     }
 
