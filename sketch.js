@@ -1,5 +1,6 @@
 let collideBoxes
 let platforms;
+let decorations;
 
 let cameraPosition;
 
@@ -12,7 +13,9 @@ function preload() {
   images = {
     player: loadImage("Images/player.png"),
     background: loadImage("Images/background.jpg"),
-    platform1: loadImage("Images/platform1.png")
+    platform1: loadImage("Images/platform1.png"),
+    platform2: loadImage("Images/platform2.png"),
+    brickwall: loadImage("Images/brickwall.png")
   }
   collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
   platforms = generatePlatforms();
@@ -24,7 +27,7 @@ function setup() {
   createCanvas(800,500);
   cameraPosition = createVector(0, 0);
   
-  player = new Player(250, 400, 30, 30, images.player, 0.3, 7, 2.4);
+  player = new Player(250, 400, 30, 30, images.player, 0.3, 8, 3);
 }
 
 
@@ -37,5 +40,9 @@ function draw() {
   let platform;
   for (platform of platforms) {
     platform.draw(cameraPosition);
+  }
+  let decoration;
+  for (decoration of decorations) {
+    decoration.draw(cameraPosition);
   }
 }
