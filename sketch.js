@@ -11,11 +11,11 @@ let images;
 
 function preload() {
   images = {
-    player: loadImage("Images/player.png"),
-    background: loadImage("Images/background.jpg"),
-    platform1: loadImage("Images/platform1.png"),
-    platform2: loadImage("Images/platform2.png"),
-    brickwall: loadImage("Images/brickwall.png")
+    player: loadImage("images/player.png"),
+    background: loadImage("images/background.jpg"),
+    platform1: loadImage("images/platform1.png"),
+    platform2: loadImage("images/platform2.png"),
+    brickwall: loadImage("images/brickwall.png")
   }
   collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
   platforms = generatePlatforms();
