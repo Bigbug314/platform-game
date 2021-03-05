@@ -15,7 +15,8 @@ function preload() {
     platform1: loadImage("Images/platform1.png")
   }
   collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
-  platforms = loadLevel(0);
+  platforms = generatePlatforms();
+  decorations = generateDecorations();
 }
 
 
