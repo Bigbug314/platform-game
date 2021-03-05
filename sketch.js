@@ -7,6 +7,7 @@ let player;
 
 let images;
 
+
 function preload() {
   images = {
     player: loadImage("Images/player.png"),
@@ -17,12 +18,14 @@ function preload() {
   platforms = generatePlatforms();
 }
 
+
 function setup() {
   createCanvas(800,500);
   cameraPosition = createVector(0, 0);
   
   player = new Player(250, 400, 30, 30, images.player, 0.3, 7, 2.4);
 }
+
 
 function draw() {
   imageMode(CORNER);
@@ -35,8 +38,6 @@ function draw() {
     platform.draw(cameraPosition);
   }
 }
-
-
 
 
 class Sprite {
@@ -199,7 +200,6 @@ class Entity extends Sprite {
     return false;
   }
 }
-
 
 
 class Player extends Entity {
