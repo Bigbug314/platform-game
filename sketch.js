@@ -215,6 +215,11 @@ class Player extends Entity {
     
     //Move camera
     cameraPosition.x += this.pos.x - oldx;
+    if (this.pos.y < 300) {
+      cameraPosition.y = -this.pos.y+300;
+    } else {
+      cameraPosition.y = 0;
+    }
     
     this.keyboardEventUpdate();
     this.draw(cameraPos);
