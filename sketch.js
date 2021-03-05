@@ -21,7 +21,7 @@ function setup() {
   createCanvas(800,500);
   cameraPosition = createVector(0, 0);
   
-  player = new Player(250, 400, 20, 20, images.player, 0.3, 7, 2.4);
+  player = new Player(250, 400, 30, 30, images.player, 0.3, 7, 2.4);
 }
 
 function draw() {
