@@ -6,17 +6,17 @@ class Level {
       new Platform(330, 290, 120, 25, images.platform2),
       new Platform(500, 420, 70, 25, images.platform1),
       new Platform(600, 350, 50, 25, images.platform1),
-      new Platform(200, 200, 100, 25, images.platform2)
+      new Platform(200, 200, 100, 25, images.platform2),
+      new Platform(-100, -2850, 100, 3800, images.brickwall),      // left wall
+      new Platform(-10000, 500, 20000, 100, images.platform1)                        // floor
     ];
 
-    this.decorations = [
-      new Sprite(-100, -2850, 100, 3800, images.brickwall)
-    ];
+    this.decorations = [];
 
     this.player = new Player(250, 400, 30, 30, images.player, 0.3, 8, 3);
 
     // do this at the end for every platform/decoration
-    this.collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
+    this.collideBoxes = [];
 
     for (let platform of this.platforms) {
       this.collideBoxes.push(platform.collideBox);
