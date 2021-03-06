@@ -12,12 +12,18 @@ function preload() {
     brickwall: loadImage("images/brickwall.png")
   }
 
+  sounds = {
+    music: loadSound("sounds/Evan_king_moon_base.mp3")
+  }
+
   currentLevel = new Level("levels/level1.json");
 }
 
 
 function setup() {
   createCanvas(800, 500);
+
+  sounds.music.play();
 }
 
 

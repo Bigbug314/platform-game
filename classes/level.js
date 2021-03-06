@@ -26,6 +26,8 @@ class Level {
   }
 
   update() {
+    this.player.update(this.cameraPosition, this.collideBoxes);
+
     //Move camera
     this.cameraPosition.x = this.player.pos.x-250;
     
@@ -34,9 +36,6 @@ class Level {
     } else {
       this.cameraPosition.y = 0;
     }
-
-    this.player.update(this.cameraPosition, this.collideBoxes);
-
   }
 
   draw() {
@@ -47,5 +46,6 @@ class Level {
     for (let decoration of this.decorations) {
       decoration.draw(this.cameraPosition);
     }
+    this.player.draw(this.cameraPosition);
   }
 }
