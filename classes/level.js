@@ -10,7 +10,10 @@ class Level {
       new Platform(600, 350, 50, 25, images.platform1),
       new Platform(200, 200, 100, 25, images.platform2),
       new MovingPlatform(380, -20, 90, 25, images.platform2, "vertical", 170, 1.5),
-      new Platform(500, -50, 300, 25, images.platform2)
+      new Platform(500, -50, 300, 25, images.platform2),
+      new BouncyPlatform(900, 100, 70, 10, images.slime, 15),
+      new Platform(1050, -200, 100, 25, images.platform2),
+      new Spike(1050, -215, 50, 15, images.spike)
     ];
 
     this.decorations = [
@@ -37,7 +40,9 @@ class Level {
     this.collideBoxes = [];
 
     for (let platform of this.platforms) {
-      this.collideBoxes.push(platform.collideBox);
+      if (platform.collideBox) {
+        this.collideBoxes.push(platform.collideBox);
+      }
     }
 
     this.cameraPosition = createVector(0, 0);
@@ -45,7 +50,12 @@ class Level {
   }
 
   update() {
-    this.player.update(this.cameraPosition, this.collideBoxes);
+    this.player.update(this.collideBoxes);
+    if (this.player.isDead) {
+      this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
+      this.player.vel = createVector(0, 0);
+      this.player.isDead = false;
+    }
 
     for (let platform of this.platforms) {
       platform.update(this.player);

@@ -3,9 +3,10 @@ class Player extends Entity {
     super(x, y, w, h, img, gravity);
     this.jumpForce = jumpForce;
     this.speed = speed;
+    this.isDead = false;
   }
   
-  update(cameraPos, collideBoxes) {
+  update(collideBoxes) {
     this.moveUpdate(collideBoxes);
     this.keyboardEventUpdate(collideBoxes);
   }
@@ -32,6 +33,10 @@ class Player extends Entity {
     if (!moving) {
       this.vel.x = 0;
     }
+  }
+
+  kill() {
+    this.isDead = true;
   }
 }
 
