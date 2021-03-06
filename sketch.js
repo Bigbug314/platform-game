@@ -23,6 +23,7 @@ function preload() {
 function setup() {
   createCanvas(800, 500);
 
+  sounds.music.setVolume(0.1);
   sounds.music.play();
 }
 
@@ -33,4 +34,8 @@ function draw() {
   
   currentLevel.update();
   currentLevel.draw();
+
+  if (!sounds.music.isPlaying()) {
+    sounds.music.play();
+  }
 }
