@@ -2,6 +2,7 @@ class Level {
   constructor(levelData) { // levelFile: levels/levelX.js
     this.platforms = levelData.platforms;
     this.decorations = levelData.decorations;
+    this.checkpoints = levelData.checkpoints;
     this.player = levelData.player;
 
     // do this at the end for every platform/decoration
