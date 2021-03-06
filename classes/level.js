@@ -3,15 +3,19 @@ class Level {
 
     // temporary stuff, should be in the JSON level file
     this.platforms = [
+      new Platform(-100, -2850, 100, 3800, images.brickwall), //left wall
+      new Platform(-10000, 500, 20000, 100, images.platform1), //floor
       new Platform(330, 290, 120, 25, images.platform2),
       new Platform(500, 420, 70, 25, images.platform1),
       new Platform(600, 350, 50, 25, images.platform1),
       new Platform(200, 200, 100, 25, images.platform2),
-      new Platform(-100, -2850, 100, 3800, images.brickwall),      // left wall
-      new Platform(-10000, 500, 20000, 100, images.platform1)                        // floor
+      new MovingPlatform(380, -20, 90, 25, images.platform2, "vertical", 170, 1.5),
+      new Platform(500, -50, 300, 25, images.platform2)
     ];
 
-    this.decorations = [];
+    this.decorations = [
+      new Sprite(-100, -2850, 100, 3800, images.brickwall)
+    ];
 
     this.player = new Player(250, 400, 30, 30, images.player, 0.3, 8, 3);
 
@@ -23,10 +27,15 @@ class Level {
     }
 
     this.cameraPosition = createVector(0, 0);
+    this.checkpointCoo = createVector(250, 400);
   }
 
   update() {
     this.player.update(this.cameraPosition, this.collideBoxes);
+
+    for (let platform of this.platforms) {
+      platform.update(this.player);
+    }
 
     //Move camera
     this.cameraPosition.x = this.player.pos.x-250;

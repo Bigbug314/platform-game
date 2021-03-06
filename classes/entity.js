@@ -12,9 +12,11 @@ class Entity extends Sprite {
     let oldPos = createVector(this.pos.x, this.pos.y);
     //Move
     this.pos.add(this.vel);
+
     let indexes = this.isColliding(this.pos.x, this.pos.y, this.size.x, this.size.y, collideBoxes);
+
+
     
-    //Loop for all the collisions
     for (let index of indexes) {
       if (this.isCollidingX(oldPos.x, this.size.x, index, collideBoxes)) {
         if (this.vel.y < 0) {
