@@ -9,14 +9,39 @@ class Level {
     this.collideBoxes = [];
 
     for (let platform of this.platforms) {
-      this.collideBoxes.push(platform.collideBox);
+      if (platform.collideBox) {
+        this.collideBoxes.push(platform.collideBox);
+      }
     }
 
     this.cameraPosition = createVector(0, 0);
+    this.checkpointCoo = createVector(250, 400);
   }
 
   update() {
-    this.player.update(this.cameraPosition, this.collideBoxes);
+    this.player.update(this.collideBoxes);
+    if (this.player.isDead) {
+      this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
+      this.player.vel = createVector(0, 0);
+      this.player.isDead = false;
+    }
+
+    for (let platform of this.platforms) {
+      platform.update(this.player);
+    }
+
+    for (let checkpoint of this.checkpoints) {
+      if (checkpoint.isColliding(this.player)) {
+        this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
+      }
+    }
+
+
+    //Go back to last checkpoint
+    if (keyIsDown(69)) {
+      this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
+      this.player.vel = createVector(0, 0);
+    }
 
     //Move camera
     this.cameraPosition.x = this.player.pos.x-250;
@@ -36,6 +61,11 @@ class Level {
     for (let decoration of this.decorations) {
       decoration.draw(this.cameraPosition);
     }
+
+    for (let checkpoint of this.checkpoints) {
+      checkpoint.draw(this.cameraPosition);
+    }
+
     this.player.draw(this.cameraPosition);
   }
 }
