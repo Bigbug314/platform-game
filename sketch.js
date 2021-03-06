@@ -16,7 +16,7 @@ function preload() {
     music: loadSound("sounds/Evan_king_moon_base.mp3")
   }
 
-  currentLevel = new Level("levels/level1.json");
+  currentLevel = new Level(getDataLevel1());
 }
 
 
