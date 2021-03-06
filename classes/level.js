@@ -4,7 +4,7 @@ class Level {
     // temporary stuff, should be in the JSON level file
     this.platforms = [
       new Platform(-100, -2850, 100, 3800, images.brickwall), //left wall
-      new Platform(-10000, 500, 20000, 100, images.platform1), //floor
+      new Platform(-10000, 470, 20000, 100, images.platform1), //floor
       new Platform(330, 290, 120, 25, images.platform2),
       new Platform(500, 420, 70, 25, images.platform1),
       new Platform(600, 350, 50, 25, images.platform1),
@@ -14,7 +14,17 @@ class Level {
     ];
 
     this.decorations = [
-      new Sprite(-100, -2850, 100, 3800, images.brickwall)
+      new Sprite(-100, -2850, 100, 3800, images.brickwall),
+      new Sprite(-10000, 470, 2000, 30, images.floor),
+      new Sprite(-8000, 470, 2000, 30, images.floor),
+      new Sprite(-6000, 470, 2000, 30, images.floor),
+      new Sprite(-4000, 470, 2000, 30, images.floor),
+      new Sprite(-2000, 470, 2000, 30, images.floor),
+      new Sprite(0, 470, 2000, 30, images.floor),
+      new Sprite(2000, 470, 2000, 30, images.floor),
+      new Sprite(4000, 470, 2000, 30, images.floor),
+      new Sprite(6000, 470, 2000, 30, images.floor),
+      new Sprite(8000, 470, 2000, 30, images.floor)
     ];
 
     this.checkpoints = [
