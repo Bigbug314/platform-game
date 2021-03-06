@@ -6,6 +6,7 @@ class Player extends Entity {
   }
   
   update(cameraPos, collideBoxes) {
+    this.moveUpdate(collideBoxes);
     this.keyboardEventUpdate(collideBoxes);
     this.draw(cameraPos);
   }

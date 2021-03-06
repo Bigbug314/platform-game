@@ -26,13 +26,9 @@ class Level {
   }
 
   update() {
-    //Store old x
-    let oldx = this.player.pos.x; 
-
-    this.player.moveUpdate(this.collideBoxes);
-    
     //Move camera
-    this.cameraPosition.x += this.player.pos.x - oldx;
+    this.cameraPosition.x = this.player.pos.x-250;
+    
     if (this.player.pos.y < 300) {
       this.cameraPosition.y = -this.player.pos.y + 300;
     } else {
