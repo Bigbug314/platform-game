@@ -17,6 +17,10 @@ class Level {
       new Sprite(-100, -2850, 100, 3800, images.brickwall)
     ];
 
+    this.checkpoints = [
+      new Checkpoint(635, -100, 30, 30, images.star)
+    ]
+
     this.player = new Player(250, 400, 30, 30, images.player, 0.3, 8, 3);
 
     // do this at the end for every platform/decoration
@@ -37,6 +41,19 @@ class Level {
       platform.update(this.player);
     }
 
+    for (let checkpoint of this.checkpoints) {
+      if (checkpoint.isColliding(this.player)) {
+        this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
+      }
+    }
+
+
+    //Go back to last checkpoint
+    if (keyIsDown(69)) {
+      this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
+      this.player.vel = createVector(0, 0);
+    }
+
     //Move camera
     this.cameraPosition.x = this.player.pos.x-250;
     
@@ -55,6 +72,11 @@ class Level {
     for (let decoration of this.decorations) {
       decoration.draw(this.cameraPosition);
     }
+
+    for (let checkpoint of this.checkpoints) {
+      checkpoint.draw(this.cameraPosition);
+    }
+
     this.player.draw(this.cameraPosition);
   }
 }
