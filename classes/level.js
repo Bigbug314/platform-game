@@ -19,7 +19,7 @@ class Level {
     this.collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
 
     for (let platform of this.platforms) {
-      this.collideBoxes.push(new CollideBox(platform.pos.x, platform.pos.y, platform.size.x, platform.size.y));
+      this.collideBoxes.push(platform.collideBox);
     }
 
     this.cameraPosition = createVector(0, 0);
