@@ -9,7 +9,8 @@ function preload() {
     background: loadImage("images/background.jpg"),
     platform1: loadImage("images/platform1.png"),
     platform2: loadImage("images/platform2.png"),
-    brickwall: loadImage("images/brickwall.png")
+    brickwall: loadImage("images/brickwall.png"),
+    star: loadImage("images/star.png")
   }
 
   sounds = {
