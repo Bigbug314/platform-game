@@ -11,7 +11,9 @@ function preload() {
     platform2: loadImage("images/platform2.png"),
     brickwall: loadImage("images/brickwall.png"),
     star: loadImage("images/star.png"),
-    floor: loadImage("images/floor.png")
+    floor: loadImage("images/floor.png"),
+    slime: loadImage("images/slime.png"),
+    spike: loadImage("images/spike.png")
   }
 
   sounds = {
