@@ -46,5 +46,6 @@ class Level {
     for (let decoration of this.decorations) {
       decoration.draw(this.cameraPosition);
     }
+    this.player.draw(this.cameraPosition);
   }
 }
