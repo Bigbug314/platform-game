@@ -5,32 +5,18 @@ class Player extends Entity {
     this.speed = speed;
   }
   
-  update(cameraPos) {
-    //Store old x
-    var oldx = this.pos.x; 
-    
-    this.moveUpdate();
-    
-    //Move camera
-    cameraPosition.x += this.pos.x - oldx;
-    if (this.pos.y < 300) {
-      cameraPosition.y = -this.pos.y+300;
-    } else {
-      cameraPosition.y = 0;
-    }
-    
-    this.keyboardEventUpdate();
+  update(cameraPos, collideBoxes) {
+    this.keyboardEventUpdate(collideBoxes);
     this.draw(cameraPos);
   }
   
-  keyboardEventUpdate() {
+  keyboardEventUpdate(collideBoxes) {
     //JUMP
-    if (keyIsDown(32) && this.isOnSomething()) {
+    if (keyIsDown(32) && this.isOnSomething(collideBoxes)) {
       this.vel.add(createVector(0, -this.jumpForce));
     }
 
-
-    var moving = false;
+    let moving = false;
     //LEFT
     if (keyIsDown(81) || keyIsDown(65)) {
       this.vel.x = -this.speed;

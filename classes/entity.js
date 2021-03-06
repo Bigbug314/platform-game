@@ -5,19 +5,18 @@ class Entity extends Sprite {
     this.gravity = gravity;
   }
   
-  moveUpdate() {
+  moveUpdate(collideBoxes) {
     //Gravity
     this.addForce(createVector(0, this.gravity));
     
-    var oldPos = createVector(this.pos.x, this.pos.y);
+    let oldPos = createVector(this.pos.x, this.pos.y);
     //Move
     this.pos.add(this.vel);
-    var indexes = this.isColliding(this.pos.x, this.pos.y, this.size.x, this.size.y);
+    let indexes = this.isColliding(this.pos.x, this.pos.y, this.size.x, this.size.y, collideBoxes);
     
     //Loop for all the collisions
-    var index
-    for (index of indexes) {
-      if (this.isCollidingX(oldPos.x, this.size.x, index)) {
+    for (let index of indexes) {
+      if (this.isCollidingX(oldPos.x, this.size.x, index, collideBoxes)) {
         if (this.vel.y < 0) {
           this.pos.y = collideBoxes[index].pos.y+collideBoxes[index].size.y;
         }
@@ -26,7 +25,7 @@ class Entity extends Sprite {
         }
         this.vel.y = 0;
       }
-      else if (this.isCollidingY(oldPos.y, this.size.y, index)) {
+      else if (this.isCollidingY(oldPos.y, this.size.y, index, collideBoxes)) {
         if (this.vel.x < 0) {
           this.pos.x = collideBoxes[index].pos.x+collideBoxes[index].size.x;
         }
@@ -42,20 +41,19 @@ class Entity extends Sprite {
     this.vel.add(vector);
   }
   
-  isColliding(x, y, w, h) {
-    var collideBox;
-    var indexes = [];
-    for (collideBox of collideBoxes) {
+  isColliding(x, y, w, h, collideBoxes) {
+    let indexes = [];
+    for (let collideBox of collideBoxes) {
       //X
-      var collideX = false;
+      let collideX = false;
       if (collideBox.pos.x >= x) {
-        var d = collideBox.pos.x - x;
+        let d = collideBox.pos.x - x;
         if (w > d) {
           collideX = true;
         }
       }
       else if (collideBox.pos.x < x) {
-        var d = x - collideBox.pos.x;
+        let d = x - collideBox.pos.x;
         if (collideBox.size.x > d) {
           collideX = true;
         }
@@ -64,13 +62,13 @@ class Entity extends Sprite {
       //Y
       if (collideX) {
         if (collideBox.pos.y >= y) {
-          var d = collideBox.pos.y - y;
+          let d = collideBox.pos.y - y;
           if (h > d) {
             indexes.push(collideBoxes.indexOf(collideBox));
           }
         }
         else if (collideBox.pos.y < y) {
-          var d = y - collideBox.pos.y;
+          let d = y - collideBox.pos.y;
           if (collideBox.size.y > d) {
             indexes.push(collideBoxes.indexOf(collideBox));
           }
@@ -80,32 +78,32 @@ class Entity extends Sprite {
     return indexes;
   }
   
-  isCollidingX(x, w, i) {
-    var collideBox = collideBoxes[i];
+  isCollidingX(x, w, i, collideBoxes) {
+    let collideBox = collideBoxes[i];
     if (collideBox.pos.x >= x) {
-        var d = collideBox.pos.x - x;
+        let d = collideBox.pos.x - x;
         if (w > d) {
           return true;
         }
       }
       else if (collideBox.pos.x < x) {
-        var d = x - collideBox.pos.x;
+        let d = x - collideBox.pos.x;
         if (collideBox.size.x > d) {
           return true;
         }
       }
   }
   
-  isCollidingY(y, h, i) {
-    var collideBox = collideBoxes[i];
+  isCollidingY(y, h, i, collideBoxes) {
+    let collideBox = collideBoxes[i];
     if (collideBox.pos.y >= y) {
-      var d = collideBox.pos.y - y;
+      let d = collideBox.pos.y - y;
       if (h > d) {
         return true;
       }
     }
     else if (collideBox.pos.y < y) {
-      var d = y - collideBox.pos.y;
+      let d = y - collideBox.pos.y;
       if (collideBox.size.y > d) {
         return true;
       }
@@ -113,23 +111,22 @@ class Entity extends Sprite {
   }
 
 
-  isOnSomething() {
-    var x = this.pos.x;
-    var y = this.pos.y;
-    var w = this.size.x;
-    var h = this.size.y;
-    var collideBox;
-    for (collideBox of collideBoxes) {
+  isOnSomething(collideBoxes) {
+    let x = this.pos.x;
+    let y = this.pos.y;
+    let w = this.size.x;
+    let h = this.size.y;
+    for (let collideBox of collideBoxes) {
       //X
-      var collideX = false;
+      let collideX = false;
       if (collideBox.pos.x >= x) {
-        var d = collideBox.pos.x - x;
+        let d = collideBox.pos.x - x;
         if (w > d) {
           collideX = true;
         }
       }
       else if (collideBox.pos.x < x) {
-        var d = x - collideBox.pos.x;
+        let d = x - collideBox.pos.x;
         if (collideBox.size.x > d) {
           collideX = true;
         }

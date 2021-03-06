@@ -8,7 +8,7 @@ class Sprite {
   draw(cameraPos) {
     push();
     imageMode(CORNER);
-    image(this.img, this.pos.x-cameraPos.x, this.pos.y+cameraPos.y, this.size.x, this.size.y);
+    image(this.img, this.pos.x - cameraPos.x, this.pos.y + cameraPos.y, this.size.x, this.size.y);
     pop();
   }
 }

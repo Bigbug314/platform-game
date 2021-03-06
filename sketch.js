@@ -1,11 +1,5 @@
-let collideBoxes
-let platforms;
-let decorations;
 
-let cameraPosition;
-
-let player;
-
+let currentLevel;
 let images;
 
 
@@ -17,17 +11,13 @@ function preload() {
     platform2: loadImage("images/platform2.png"),
     brickwall: loadImage("images/brickwall.png")
   }
-  collideBoxes = [new CollideBox(-10000, 500, 20000, 100), new CollideBox(-100, -10000, 100, 10800)];
-  platforms = generatePlatforms();
-  decorations = generateDecorations();
+
+  currentLevel = new Level("levels/level1.json");
 }
 
 
 function setup() {
-  createCanvas(800,500);
-  cameraPosition = createVector(0, 0);
-  
-  player = new Player(250, 400, 30, 30, images.player, 0.3, 8, 3);
+  createCanvas(800, 500);
 }
 
 
@@ -35,14 +25,6 @@ function draw() {
   imageMode(CORNER);
   image(images.background, 0, 0, 800, 500);
   
-  player.update(cameraPosition);
-  
-  let platform;
-  for (platform of platforms) {
-    platform.draw(cameraPosition);
-  }
-  let decoration;
-  for (decoration of decorations) {
-    decoration.draw(cameraPosition);
-  }
+  currentLevel.update();
+  currentLevel.draw();
 }
