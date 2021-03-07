@@ -6,6 +6,7 @@ function menuButtonClicked() {
       currentLevel.guis[4].setActive(false);
       currentLevel.guis[5].setActive(false);
       currentLevel.guis[6].setActive(false);
+      currentLevel.guis[7].setActive(false);
     } else {
       currentLevel.isMenuEnable = true;
       currentLevel.guis[2].setActive(true);
@@ -13,6 +14,7 @@ function menuButtonClicked() {
       currentLevel.guis[4].setActive(false);
       currentLevel.guis[5].setActive(false);
       currentLevel.guis[6].setActive(false);
+      currentLevel.guis[7].setActive(false);
     }
 }
 
@@ -22,6 +24,7 @@ function tutorialClicked() {
     currentLevel.guis[4].setActive(true);
     currentLevel.guis[5].setActive(true);
     currentLevel.guis[6].setActive(true);
+    currentLevel.guis[7].setActive(true);
 }
 
 function quitTutorialClicked() {
@@ -30,4 +33,5 @@ function quitTutorialClicked() {
     currentLevel.guis[4].setActive(false);
     currentLevel.guis[5].setActive(false);
     currentLevel.guis[6].setActive(false);
+    currentLevel.guis[7].setActive(false);
 }
