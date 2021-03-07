@@ -30,9 +30,9 @@ function preload() {
 function setup() {
   createCanvas(1100, 700);
 
-  sounds.music.setVolume(0.05);
+  sounds.music.setVolume(0.03);
   sounds.jump.setVolume(0.1);
-  sounds.slime.setVolume(0.8);
+  sounds.slime.setVolume(0.5);
   sounds.spike.setVolume(0.3);
 }
 

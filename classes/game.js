@@ -20,7 +20,7 @@ class Level {
 
     //God mode
     this.godModEnable = false;
-    this.godButton = new Button(0, 0, 50, 50, images.player, this.switchGodMode);
+    this.godButton = new Button(0, 0, 50, 50, images.star, this.switchGodMode);
   }
 
   update() {

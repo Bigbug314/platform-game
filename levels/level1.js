@@ -10,7 +10,7 @@ function getDataLevel1() {
       new MovingPlatform(380, 160, 90, 25, images.platform2, "vertical", 170, 1.5),
       new Platform(500, 130, 300, 25, images.platform2),
       new BouncyPlatform(900, 280, 70, 10, images.slime, 15),
-      new Platform(1050, -20, 100, 25, images.platform2),
+      new Platform(1050, -20, 150, 25, images.platform2),
       new Spike(1050, -35, 50, 15, images.spike)
     ],
 
@@ -30,7 +30,7 @@ function getDataLevel1() {
 
     checkpoints: [
       new Checkpoint(635, 95, 30, 30, images.star),
-      new Checkpoint(1110, -55, 30, 30, images.star)
+      new Checkpoint(1160, -55, 30, 30, images.star)
     ],
 
     player: new Player(250, 600, 30, 30, images.player, 0.3, 8, 3)
