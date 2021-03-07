@@ -14,7 +14,8 @@ function preload() {
     spike: loadImage("images/spike.png"),
     redround: loadImage("images/red_round.png"),
     menu: loadImage("images/menu.png"),
-    menubackground: loadImage("images/white.png")
+    menubackground: loadImage("images/white.png"),
+    tutorialtext: loadImage("images/tutorialtext.png")
   }
 
   sounds = {

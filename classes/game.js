@@ -24,7 +24,8 @@ class Level {
     this.guis = [
       new Button(10, 10, 50, 50, images.star, true, this.switchGodMode),          //God mode button
       new Button(1020, 10, 70, 70, images.menu, true, this.menuButtonClicked),   //Menu button
-      new GUI(300, 50, 500, 600, images.menubackground, false)                 //Menu panel
+      new GUI(300, 50, 500, 600, images.menubackground, false),                 //Menu panel
+      new Button(380, 120, 340, 90, images.tutorialtext, false, this.tutorialClicked) //Tutorial button
     ];
   }
 
@@ -105,5 +106,10 @@ class Level {
 
   menuButtonClicked() {
     currentLevel.guis[2].setActive(!currentLevel.guis[2].isActive);
+    currentLevel.guis[3].setActive(!currentLevel.guis[3].isActive);
+  }
+
+  tutorialClicked() {
+
   }
 }
