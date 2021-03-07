@@ -19,7 +19,21 @@ items_list = [
         "default_height": 20
     },
     {
-        "name": "grass_platform2",
+        "name": "moving_grass_platform2",
+        "type": "platform",
+        "image": "../images/platform2.png",
+        "default_width": 100,
+        "default_height": 20
+    },
+    {
+        "name": "moving_grass_platform1",
+        "type": "platform",
+        "image": "../images/platform1.png",
+        "default_width": 100,
+        "default_height": 20
+    },
+    {
+        "name": "moving_grass_platform2",
         "type": "platform",
         "image": "../images/platform2.png",
         "default_width": 100,
