@@ -2,7 +2,6 @@
 let currentLevel;
 let images;
 
-
 function preload() {
   images = {
     player: loadImage("images/player.png"),
@@ -44,4 +43,8 @@ function draw() {
   if (!sounds.music.isPlaying()) {
     sounds.music.play();
   }
+}
+
+function mouseClicked() {
+  currentLevel.godModeButton.update(createVector(mouseX, mouseY));
 }
