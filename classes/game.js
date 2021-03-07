@@ -63,7 +63,7 @@ class Level {
     }
 
     //Move camera
-    this.cameraPosition.x = this.player.pos.x-250;
+    this.cameraPosition.x = this.player.pos.x-350;
     
     if (this.player.pos.y < 300) {
       this.cameraPosition.y = -this.player.pos.y + 300;
