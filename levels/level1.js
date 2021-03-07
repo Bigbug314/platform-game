@@ -29,8 +29,8 @@ function getDataLevel1() {
     ],
 
     checkpoints: [
-      new Checkpoint(635, 100, 30, 30, images.star),
-      new Checkpoint(1110, -50, 30, 30, images.star)
+      new Checkpoint(635, 95, 30, 30, images.star),
+      new Checkpoint(1110, -55, 30, 30, images.star)
     ],
 
     player: new Player(250, 600, 30, 30, images.player, 0.3, 8, 3)
