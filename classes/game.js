@@ -22,8 +22,8 @@ class Level {
     this.godModEnable = false;
     //GUI
     this.guis = [
-      new Button(0, 0, 50, 50, images.star, true, this.switchGodMode),          //God mode button
-      new Button(1030, 0, 70, 70, images.menu, true, this.menuButtonClicked),   //Menu button
+      new Button(10, 10, 50, 50, images.star, true, this.switchGodMode),          //God mode button
+      new Button(1020, 10, 70, 70, images.menu, true, this.menuButtonClicked),   //Menu button
       new GUI(300, 50, 500, 600, images.menubackground, false)                 //Menu panel
     ];
   }
