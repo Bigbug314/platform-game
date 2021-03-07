@@ -13,6 +13,7 @@ function preload() {
     slime: loadImage("images/slime.png"),
     spike: loadImage("images/spike.png"),
     redround: loadImage("images/red_round.png"),
+    menu: loadImage("images/menu.png"),
     menubackground: loadImage("images/white.png")
   }
 
