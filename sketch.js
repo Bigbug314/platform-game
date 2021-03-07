@@ -12,7 +12,8 @@ function preload() {
     floor: loadImage("images/floor.png"),
     slime: loadImage("images/slime.png"),
     spike: loadImage("images/spike.png"),
-    redround: loadImage("images/red_round.png")
+    redround: loadImage("images/red_round.png"),
+    menubackground: loadImage("images/white.png")
   }
 
   sounds = {
@@ -50,5 +51,7 @@ function draw() {
 }
 
 function mouseClicked() {
-  currentLevel.godButton.update(createVector(mouseX,mouseY));
+  for (let gui of currentLevel.guis) {
+    gui.update(createVector(mouseX,mouseY));
+  }
 }

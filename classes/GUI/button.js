@@ -1,6 +1,6 @@
 class Button extends GUI {
-    constructor(x, y, w, h, img, action) {
-        super(x, y, w, h, img);
+    constructor(x, y, w, h, img, isActive, action) {
+        super(x, y, w, h, img, isActive);
         this.action = action;
     }
 

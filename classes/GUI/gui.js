@@ -1,9 +1,9 @@
 class GUI {
-    constructor(x, y, w, h, img) {
+    constructor(x, y, w, h, img, isActive) {
         this.pos = createVector(x, y);
         this.size = createVector(w, h);
         this.img = img;
-        this.isActive = true;
+        this.isActive = isActive;
     }
 
     draw() {

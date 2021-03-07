@@ -20,7 +20,12 @@ class Level {
 
     //God mode
     this.godModEnable = false;
-    this.godButton = new Button(0, 0, 50, 50, images.star, this.switchGodMode);
+    //GUI
+    this.guis = [
+      new Button(0, 0, 50, 50, images.star, true, this.switchGodMode),          //God mode button
+      new Button(1030, 0, 70, 70, images.star, true, this.menuButtonClicked),   //Menu button
+      new GUI(300, 50, 500, 600, images.menubackground, false)                 //Menu panel
+    ];
   }
 
   update() {
@@ -84,15 +89,21 @@ class Level {
 
 
     //Gui
-    this.godButton.draw();
+    for (let gui of this.guis) {
+      gui.draw();
+    }
   }
 
-   switchGodMode() {
-     if (currentLevel.godModEnable) {
-       currentLevel.godModEnable = false;
-     } else {
-       currentLevel.godModEnable = true;
-     }
-     console.log(currentLevel.godModEnable);
-   }
+  switchGodMode() {
+    if (currentLevel.godModEnable) {
+      currentLevel.godModEnable = false;
+    } else {
+      currentLevel.godModEnable = true;
+    }
+    console.log(currentLevel.godModEnable);
+  }
+
+  menuButtonClicked() {
+    currentLevel.guis[2].setActive(!currentLevel.guis[2].isActive);
+  }
 }
