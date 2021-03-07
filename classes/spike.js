@@ -6,6 +6,7 @@ class Spike extends Sprite {
     update(player) {
         if (this.isColliding(player)) {
             player.kill();
+            sounds.spike.play();
         }
     }
 

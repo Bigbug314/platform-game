@@ -7,6 +7,7 @@ class BouncyPlatform extends Platform {
     update(player) {
         if (this.isPlayerOnPlatform(player)) {
             player.vel.y = -this.bounciness;
+            sounds.slime.play();
         }
     }
 

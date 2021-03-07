@@ -1,7 +1,5 @@
-
 let currentLevel;
 let images;
-
 
 function preload() {
   images = {
@@ -19,7 +17,10 @@ function preload() {
 
   sounds = {
     music: loadSound("sounds/Evan_king_moon_base.mp3"),
-    checkpoint: loadSound("sounds/checkpoint.wav")
+    checkpoint: loadSound("sounds/checkpoint.wav"),
+    jump: loadSound("sounds/jump.mp3"),
+    slime: loadSound("sounds/slime.mp3"),
+    spike: loadSound("sounds/spike.mp3")
   }
 
   currentLevel = new Level(getDataLevel1());
@@ -30,7 +31,9 @@ function setup() {
   createCanvas(1100, 700);
 
   sounds.music.setVolume(0.05);
-  sounds.music.play();
+  sounds.jump.setVolume(0.1);
+  sounds.slime.setVolume(0.8);
+  sounds.spike.setVolume(0.3);
 }
 
 
@@ -44,4 +47,8 @@ function draw() {
   if (!sounds.music.isPlaying()) {
     sounds.music.play();
   }
+}
+
+function mouseClicked() {
+  currentLevel.godButton.update(createVector(mouseX,mouseY));
 }
