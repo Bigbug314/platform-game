@@ -1,4 +1,3 @@
-
 let currentLevel;
 let images;
 
@@ -20,7 +19,8 @@ function preload() {
   sounds = {
     music: loadSound("sounds/Evan_king_moon_base.mp3"),
     checkpoint: loadSound("sounds/checkpoint.wav"),
-    jump: loadSound("sounds/jump.mp3")
+    jump: loadSound("sounds/jump.mp3"),
+    slime: loadSound("sounds/slime.mp3")
   }
 
   currentLevel = new Level(getDataLevel1());
@@ -32,6 +32,7 @@ function setup() {
 
   sounds.music.setVolume(0.05);
   sounds.jump.setVolume(0.1);
+  sounds.slime.setVolume(0.8);
 }
 
 
