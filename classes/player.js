@@ -13,6 +13,7 @@ class Player extends Entity {
       this.moveUpdate(collideBoxes);
       this.keyboardEventUpdate(collideBoxes);
     } else {
+      this.vel = createVector(0, 0);
       this.canDie = false;
       if (keyIsDown(81) || keyIsDown(65)) {
         this.pos.x -= 5;

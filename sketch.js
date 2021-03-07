@@ -50,4 +50,5 @@ function draw() {
 }
 
 function mouseClicked() {
+  currentLevel.godButton.update(createVector(mouseX,mouseY));
 }
