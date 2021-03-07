@@ -14,17 +14,13 @@ class Level {
       }
     }
 
-    //Gui
-    this.godModeButton = new Button(10, 10, 150, 150, images.player, this.switchGodMode)
-    this.godMode = false;
-
     this.cameraPosition = createVector(0, 0);
     this.checkpointCoo = createVector(250, 600);
     this.checkpointSelector = new Sprite(this.checkpointCoo.x, this.checkpointCoo.y, 30, 30, images.redround);
   }
 
   update() {
-    this.player.update(this.collideBoxes, this.godMode);
+    this.player.update(this.collideBoxes);
     if (this.player.isDead) {
       this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
       this.player.vel = createVector(0, 0);
@@ -84,11 +80,5 @@ class Level {
     this.godModeButton.draw();
 
     this.player.draw(this.cameraPosition);
-  }
-
-
-  switchGodMode() {
-    this.godMode != this.godMode;
-    console.log(this.godMode);
   }
 }

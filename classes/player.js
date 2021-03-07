@@ -6,14 +6,9 @@ class Player extends Entity {
     this.isDead = false;
   }
   
-  update(collideBoxes, godMode) {
+  update(collideBoxes) {
     this.moveUpdate(collideBoxes);
     this.keyboardEventUpdate(collideBoxes);
-    if (godMode) {
-      console.log("aaa");
-      this.vel = createVector(0, 0);
-      this.gravity = 0;
-    }
   }
   
   keyboardEventUpdate(collideBoxes) {
