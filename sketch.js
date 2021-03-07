@@ -27,7 +27,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(1100, 700);
 
   sounds.music.setVolume(0.05);
   sounds.music.play();
@@ -36,7 +36,7 @@ function setup() {
 
 function draw() {
   imageMode(CORNER);
-  image(images.background, 0, 0, 800, 500);
+  image(images.background, 0, 0, width, height);
   
   currentLevel.update();
   currentLevel.draw();
