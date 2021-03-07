@@ -1,4 +1,4 @@
-function getData() {
+function getDataLevel1() {
   return {
     platforms: [
       new Platform(-100, -2850, 100, 3800, images.brickwall), //left wall
