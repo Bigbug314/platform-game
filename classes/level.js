@@ -20,7 +20,7 @@ class Level {
   }
 
   update() {
-    this.player.update(this.collideBoxes);
+    this.player.update(this.collideBoxes, false);
     if (this.player.isDead) {
       this.player.pos = createVector(this.checkpointCoo.x, this.checkpointCoo.y);
       this.player.vel = createVector(0, 0);

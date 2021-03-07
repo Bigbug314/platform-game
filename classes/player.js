@@ -4,11 +4,29 @@ class Player extends Entity {
     this.jumpForce = jumpForce;
     this.speed = speed;
     this.isDead = false;
+    this.canDie = true;
   }
   
-  update(collideBoxes) {
-    this.moveUpdate(collideBoxes);
-    this.keyboardEventUpdate(collideBoxes);
+  update(collideBoxes, godMode) {
+    if (!godMode) {
+      this.canDie = true;
+      this.moveUpdate(collideBoxes);
+      this.keyboardEventUpdate(collideBoxes);
+    } else {
+      this.canDie = false;
+      if (keyIsDown(81) || keyIsDown(65)) {
+        this.pos.x -= 5;
+      }
+      if (keyIsDown(68)) {
+        this.pos.x += 5;
+      }
+      if (keyIsDown(90) || keyIsDown(87)) {
+        this.pos.y -= 5;
+      }
+      if (keyIsDown(83)) {
+        this.pos.y += 5;
+      }
+    }
   }
   
   keyboardEventUpdate(collideBoxes) {
@@ -37,7 +55,9 @@ class Player extends Entity {
   }
 
   kill() {
-    this.isDead = true;
+    if (this.canDie) {
+      this.isDead = true;
+    }
   }
 }
 
