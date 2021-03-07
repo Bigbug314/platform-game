@@ -15,7 +15,8 @@ function preload() {
     redround: loadImage("images/red_round.png"),
     menu: loadImage("images/menu.png"),
     menubackground: loadImage("images/white.png"),
-    tutorialtext: loadImage("images/tutorialtext.png")
+    tutorialtext: loadImage("images/tutorialtext.png"),
+    quit: loadImage("images/quit.png")
   }
 
   sounds = {

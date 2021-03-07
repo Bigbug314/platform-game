@@ -18,4 +18,8 @@ class GUI {
     setActive(value) {
         this.isActive = value;
     }
+
+    update(mouseCoo) {
+
+    }
 }

@@ -21,11 +21,14 @@ class Level {
     //God mode
     this.godModEnable = false;
     //GUI
+    this.isMenuEnable = false;
     this.guis = [
       new Button(10, 10, 50, 50, images.star, true, this.switchGodMode),          //God mode button
       new Button(1020, 10, 70, 70, images.menu, true, this.menuButtonClicked),   //Menu button
       new GUI(300, 50, 500, 600, images.menubackground, false),                 //Menu panel
-      new Button(380, 120, 340, 90, images.tutorialtext, false, this.tutorialClicked) //Tutorial button
+      new Button(380, 120, 340, 90, images.tutorialtext, false, this.tutorialClicked), //Tutorial button
+      new GUI(350, 50, 400, 600, images.menubackground, false),                         //Tutorial panel
+      new Button(690, 60, 50, 50, images.quit, false, this.quitTutorialClicked)         //Quit tutorial button
     ];
   }
 
@@ -105,11 +108,32 @@ class Level {
   }
 
   menuButtonClicked() {
-    currentLevel.guis[2].setActive(!currentLevel.guis[2].isActive);
-    currentLevel.guis[3].setActive(!currentLevel.guis[3].isActive);
+    if (this.isMenuEnable) {
+      this.isMenuEnable = false;
+      currentLevel.guis[2].setActive(false);
+      currentLevel.guis[3].setActive(false);
+      currentLevel.guis[4].setActive(false);
+      currentLevel.guis[5].setActive(false);
+    } else {
+      this.isMenuEnable = true;
+      currentLevel.guis[2].setActive(true);
+      currentLevel.guis[3].setActive(true);
+      currentLevel.guis[4].setActive(false);
+      currentLevel.guis[5].setActive(false);
+    }
   }
 
   tutorialClicked() {
+    currentLevel.guis[2].setActive(false);
+    currentLevel.guis[3].setActive(false);
+    currentLevel.guis[4].setActive(true);
+    currentLevel.guis[5].setActive(true);
+  }
 
+  quitTutorialClicked() {
+    currentLevel.guis[2].setActive(true);
+    currentLevel.guis[3].setActive(true);
+    currentLevel.guis[4].setActive(false);
+    currentLevel.guis[5].setActive(false);
   }
 }
