@@ -104,7 +104,6 @@ class Level {
     } else {
       currentLevel.godModEnable = true;
     }
-    console.log(currentLevel.godModEnable);
   }
 
   menuButtonClicked() {
