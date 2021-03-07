@@ -15,6 +15,7 @@ class Player extends Entity {
     //JUMP
     if (keyIsDown(32) && this.isOnSomething(collideBoxes)) {
       this.vel.add(createVector(0, -this.jumpForce));
+      sounds.jump.play();
     }
 
     let moving = false;
