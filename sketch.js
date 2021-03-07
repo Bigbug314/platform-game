@@ -48,5 +48,4 @@ function draw() {
 }
 
 function mouseClicked() {
-  currentLevel.godModeButton.update(createVector(mouseX, mouseY));
 }
