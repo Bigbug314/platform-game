@@ -1,10 +1,5 @@
 items_list = [
     {
-        "name": "background1",
-        "type": "background",
-        "image": "../images/background.png"
-    },
-    {
         "name": "player",
         "type": "entity",
         "image": "../images/player.png",
