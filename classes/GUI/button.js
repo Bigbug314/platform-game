@@ -13,7 +13,7 @@ class Button extends GUI {
     cooInRectangle(x, y) {
       return (x < this.pos.x + this.size.x
               && x > this.pos.x
-              && y < this.pos.y + this.size.h
+              && y < this.pos.y + this.size.y
               && y > this.pos.y);
     }
 }
