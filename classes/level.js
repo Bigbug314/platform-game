@@ -36,7 +36,7 @@ class Level {
         if (this.checkpointCoo.x != checkpoint.pos.x && this.checkpointCoo.y != checkpoint.pos.y) {
           this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
           this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
-          sounds.checkpoint.setVolume(0.5);
+          sounds.checkpoint.setVolume(0.3);
           sounds.checkpoint.play();
         }
       }

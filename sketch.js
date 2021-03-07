@@ -29,7 +29,7 @@ function preload() {
 function setup() {
   createCanvas(800, 500);
 
-  sounds.music.setVolume(0.1);
+  sounds.music.setVolume(0.05);
   sounds.music.play();
 }
 
