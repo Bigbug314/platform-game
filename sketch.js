@@ -22,7 +22,7 @@ function preload() {
     checkpoint: loadSound("sounds/checkpoint.wav")
   }
 
-  currentLevel = new Level(getDataLevel1());
+  currentLevel = new Level(getData());
 }
 
 
