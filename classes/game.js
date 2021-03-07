@@ -28,7 +28,8 @@ class Level {
       new GUI(300, 50, 500, 600, images.menubackground, false),                 //Menu panel
       new Button(380, 120, 340, 90, images.tutorialtext, false, tutorialClicked), //Tutorial button
       new GUI(350, 50, 400, 600, images.menubackground, false),                         //Tutorial panel
-      new Button(690, 60, 50, 50, images.quit, false, quitTutorialClicked)         //Quit tutorial button
+      new Button(690, 60, 50, 50, images.quit, false, quitTutorialClicked),         //Quit tutorial button
+      new Label(380, 120, 340, 90, images.menubackground, false, "Move: A/D\nJump: SPACE\nCheckpoint: E", 20) //Tutorial
     ];
   }
 
