@@ -76,9 +76,6 @@ class Level {
       this.checkpointSelector.draw(this.cameraPosition);
     }
 
-    //Gui
-    this.godModeButton.draw();
-
     this.player.draw(this.cameraPosition);
   }
 }
