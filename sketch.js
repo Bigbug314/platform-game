@@ -13,11 +13,13 @@ function preload() {
     star: loadImage("images/star.png"),
     floor: loadImage("images/floor.png"),
     slime: loadImage("images/slime.png"),
-    spike: loadImage("images/spike.png")
+    spike: loadImage("images/spike.png"),
+    redround: loadImage("images/red_round.png")
   }
 
   sounds = {
-    music: loadSound("sounds/Evan_king_moon_base.mp3")
+    music: loadSound("sounds/Evan_king_moon_base.mp3"),
+    checkpoint: loadSound("sounds/checkpoint.wav")
   }
 
   currentLevel = new Level(getDataLevel1());
