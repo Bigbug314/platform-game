@@ -5,7 +5,7 @@ class Button extends GUI {
     }
 
     update(mouseCoo) {
-        if (this.cooInRectangle(mouseCoo.x, mouseCoo.y)) {
+        if (this.cooInRectangle(mouseCoo.x, mouseCoo.y) && this.isActive) {
             this.action();
         }
     }

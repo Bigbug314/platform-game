@@ -25,7 +25,8 @@ class Level {
       new Button(10, 10, 50, 50, images.star, true, this.switchGodMode),          //God mode button
       new Button(1020, 10, 70, 70, images.menu, true, this.menuButtonClicked),   //Menu button
       new GUI(300, 50, 500, 600, images.menubackground, false),                 //Menu panel
-      new Button(380, 120, 340, 90, images.tutorialtext, false, this.tutorialClicked) //Tutorial button
+      new Button(380, 120, 340, 90, images.tutorialtext, false, this.tutorialClicked), //Tutorial button
+      new Label(380, 120, 340, 90, images.menubackground, false, "Move: A/D\nJump: SPACE\nCheckpoint: E", 20) //Tutorial text
     ];
   }
 
@@ -110,6 +111,7 @@ class Level {
   }
 
   tutorialClicked() {
-
+    currentLevel.guis[4].setActive(!currentLevel.guis[4].isActive);
+    
   }
 }

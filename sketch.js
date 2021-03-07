@@ -54,6 +54,6 @@ function draw() {
 
 function mouseClicked() {
   for (let gui of currentLevel.guis) {
-    gui.update(createVector(mouseX,mouseY));
+    gui.update(createVector(mouseX, mouseY));
   }
 }
