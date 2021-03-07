@@ -4,8 +4,8 @@ class Button extends GUI {
         this.action = action;
     }
 
-    update(mouseCoo) {
-        if (this.cooInRectangle(mouseCoo.x, mouseCoo.y)) {
+    update() {
+        if (this.cooInRectangle(mouseX, mouseY)) {
             this.action();
         }
     }
