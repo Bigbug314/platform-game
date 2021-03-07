@@ -13,11 +13,13 @@ function preload() {
     star: loadImage("images/star.png"),
     floor: loadImage("images/floor.png"),
     slime: loadImage("images/slime.png"),
-    spike: loadImage("images/spike.png")
+    spike: loadImage("images/spike.png"),
+    redround: loadImage("images/red_round.png")
   }
 
   sounds = {
-    music: loadSound("sounds/Evan_king_moon_base.mp3")
+    music: loadSound("sounds/Evan_king_moon_base.mp3"),
+    checkpoint: loadSound("sounds/checkpoint.wav")
   }
 
   currentLevel = new Level(getDataLevel1());
@@ -25,16 +27,16 @@ function preload() {
 
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(1100, 700);
 
-  sounds.music.setVolume(0.1);
+  sounds.music.setVolume(0.05);
   sounds.music.play();
 }
 
 
 function draw() {
   imageMode(CORNER);
-  image(images.background, 0, 0, 800, 500);
+  image(images.background, 0, 0, width, height);
   
   currentLevel.update();
   currentLevel.draw();

@@ -15,7 +15,8 @@ class Level {
     }
 
     this.cameraPosition = createVector(0, 0);
-    this.checkpointCoo = createVector(250, 400);
+    this.checkpointCoo = createVector(250, 600);
+    this.checkpointSelector = new Sprite(this.checkpointCoo.x, this.checkpointCoo.y, 30, 30, images.redround);
   }
 
   update() {
@@ -32,7 +33,12 @@ class Level {
 
     for (let checkpoint of this.checkpoints) {
       if (checkpoint.isColliding(this.player)) {
-        this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
+        if (this.checkpointCoo.x != checkpoint.pos.x && this.checkpointCoo.y != checkpoint.pos.y) {
+          this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
+          this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
+          sounds.checkpoint.setVolume(0.3);
+          sounds.checkpoint.play();
+        }
       }
     }
 
@@ -66,6 +72,9 @@ class Level {
       checkpoint.draw(this.cameraPosition);
     }
 
+    if (this.checkpointCoo.x != 250 && this.checkpointCoo.y != 600) {
+      this.checkpointSelector.draw(this.cameraPosition);
+    }
     this.player.draw(this.cameraPosition);
   }
 }
