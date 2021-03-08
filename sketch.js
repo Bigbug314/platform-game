@@ -58,3 +58,7 @@ function mouseClicked() {
     gui.update(createVector(mouseX,mouseY));
   }
 }
+
+function mouseDragged() {
+  currentLevel.guis[8].update();
+}
