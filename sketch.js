@@ -62,8 +62,8 @@ function mouseClicked() {
 }
 
 function mouseDragged() {
-  currentLevel.guis[8].update();
-  volume = currentLevel.guis[8].getValue();
+  currentLevel.guis[9].update();
+  volume = currentLevel.guis[9].getValue();
   updateVolume();
 }
 

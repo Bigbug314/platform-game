@@ -30,8 +30,9 @@ class Level {
       new GUI(350, 50, 400, 600, images.menubackground, false),                         //Tutorial panel
       new Button(690, 60, 50, 50, images.quit, false, quitTutorialClicked),         //Quit tutorial button
       new Label(380, 120, 340, 90, images.menubackground, false, "Move: A/D\nJump: SPACE\nGo back to last checkpoint: E\n\n: Checkpoint", 20), //Tutorial
-      new GUI(465, 197, 30, 30, images.star, false),                                 //Tutorial
-      new SlideBar(380, 500, 340, 10, 5, [0,0,0], [255,0,0], 50, 1)                    //Volume slidebar
+      new GUI(465, 197, 30, 30, images.star, false),
+      new Label(380, 380, 340, 90, images.menubackground, false, "Volume:", 70),               //Volume text
+      new SlideBar(380, 500, 340, 10, false, 5, [0,0,0], [255,0,0], 50, 1)                    //Volume slidebar
     ];
   }
 

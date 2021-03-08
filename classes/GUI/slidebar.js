@@ -1,9 +1,8 @@
 class SlideBar extends GUI {
-    constructor(x, y, w, h, interval, rectangleColor, roundColor, roundRadius, startValue) {
-        super(x, y, w, h, null);
+    constructor(x, y, w, h, isActive, interval, rectangleColor, roundColor, roundRadius, startValue) {
+        super(x, y, w, h, null, isActive);
         this.interval = interval;
         this.ballX = this.pos.x+(startValue/interval*w);
-        console.log(this.ballX);
         this.value = startValue;
         this.rectangleColor = rectangleColor;
         this.roundColor = roundColor;
