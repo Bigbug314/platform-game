@@ -1,9 +1,10 @@
 class SlideBar extends GUI {
-    constructor(x, y, w, h, interval, rectangleColor, roundColor, roundRadius) {
+    constructor(x, y, w, h, interval, rectangleColor, roundColor, roundRadius, startValue) {
         super(x, y, w, h, null);
         this.interval = interval;
-        this.ballX = this.pos.x;
-        this.value = 0;
+        this.ballX = this.pos.x+(startValue/interval*w);
+        console.log(this.ballX);
+        this.value = startValue;
         this.rectangleColor = rectangleColor;
         this.roundColor = roundColor;
         this.roundRadius = roundRadius;
@@ -23,9 +24,8 @@ class SlideBar extends GUI {
     update() {
         if (this.isActive) {
             if (this.cooInRectangle(mouseX, mouseY)) {
-                console.log(mouseX);
                 this.ballX = floor(mouseX);
-                this.value = (mouseX-this.pos.x)/this.size.y * this.interval;
+                this.value = ((this.ballX-this.pos.x)/this.size.x) * this.interval;
             }
         }
     }
@@ -33,7 +33,6 @@ class SlideBar extends GUI {
     cooInRectangle(x, y) {
         let thisy = this.pos.y+(this.size.y/2)-this.roundRadius;
         let thish = this.roundRadius*2;
-        //console.log(thisy+" "+thish);
         return (x < this.pos.x + this.size.x
                 && x > this.pos.x
                 && y < thisy + thish

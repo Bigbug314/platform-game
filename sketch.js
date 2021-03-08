@@ -1,5 +1,6 @@
 let currentLevel;
 let images;
+let volume = 1;
 
 function preload() {
   images = {
@@ -34,10 +35,11 @@ function preload() {
 function setup() {
   createCanvas(1100, 700);
 
-  sounds.music.setVolume(0.03);
-  sounds.jump.setVolume(0.1);
-  sounds.slime.setVolume(0.5);
-  sounds.spike.setVolume(0.3);
+  sounds.music.setVolume(0.03*volume);
+  sounds.checkpoint.setVolume(0.3*volume);
+  sounds.jump.setVolume(0.1*volume);
+  sounds.slime.setVolume(0.5*volume);
+  sounds.spike.setVolume(0.3*volume);
 }
 
 
@@ -61,4 +63,15 @@ function mouseClicked() {
 
 function mouseDragged() {
   currentLevel.guis[8].update();
+  volume = currentLevel.guis[8].getValue();
+  updateVolume();
+}
+
+
+function updateVolume() {
+  sounds.music.setVolume(0.03*volume);
+  sounds.checkpoint.setVolume(0.3*volume);
+  sounds.jump.setVolume(0.1*volume);
+  sounds.slime.setVolume(0.5*volume);
+  sounds.spike.setVolume(0.3*volume);
 }

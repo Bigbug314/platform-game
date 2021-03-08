@@ -31,7 +31,7 @@ class Level {
       new Button(690, 60, 50, 50, images.quit, false, quitTutorialClicked),         //Quit tutorial button
       new Label(380, 120, 340, 90, images.menubackground, false, "Move: A/D\nJump: SPACE\nGo back to last checkpoint: E\n\n: Checkpoint", 20), //Tutorial
       new GUI(465, 197, 30, 30, images.star, false),                                 //Tutorial
-      new SlideBar(380, 500, 340, 10, 2, [0,0,0], [255,0,0], 50)                    //Volume slidebar
+      new SlideBar(380, 500, 340, 10, 5, [0,0,0], [255,0,0], 50, 1)                    //Volume slidebar
     ];
   }
 
@@ -52,7 +52,6 @@ class Level {
         if (this.checkpointCoo.x != checkpoint.pos.x && this.checkpointCoo.y != checkpoint.pos.y) {
           this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
           this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
-          sounds.checkpoint.setVolume(0.3);
           sounds.checkpoint.play();
         }
       }
