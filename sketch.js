@@ -14,7 +14,10 @@ function preload() {
     slime: loadImage("images/slime.png"),
     menubackground: loadImage("images/white.png"),
     tutorialtext: loadImage("images/tutorialtext.png"),
-    quit: loadImage("images/quit.png")
+    quit: loadImage("images/quit.png"),
+    menu: loadImage("images/menu.png"),
+    spike: loadImage("images/spike.png"),
+    redround: loadImage("images/red_round.png")
   }
 
   sounds = {
@@ -49,7 +52,7 @@ function draw() {
 
 
   if (!sounds.music.isPlaying()) {
-    sounds.music.play().setVolume();
+    sounds.music.play();
   }
 }
 
