@@ -1,7 +1,7 @@
 function getDataLevel1() {
   return {
     platforms: [
-      new Platform(-100, -2850, 100, 3800, images.brickwall), //left wall
+      new Platform(-100, -2850, 100, 3800, images.brickwall), //left wall 
       new Platform(-10000, 670, 20000, 100, images.platform1), //floor
       new Platform(330, 470, 120, 25, images.platform2),
       new Platform(500, 600, 70, 25, images.platform1),

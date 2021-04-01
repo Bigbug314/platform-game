@@ -20,6 +20,5 @@ class GUI {
     }
 
     update() {
-
     }
 }

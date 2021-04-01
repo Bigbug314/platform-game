@@ -12,9 +12,6 @@ function preload() {
     star: loadImage("images/star.png"),
     floor: loadImage("images/floor.png"),
     slime: loadImage("images/slime.png"),
-    spike: loadImage("images/spike.png"),
-    redround: loadImage("images/red_round.png"),
-    menu: loadImage("images/menu.png"),
     menubackground: loadImage("images/white.png"),
     tutorialtext: loadImage("images/tutorialtext.png"),
     quit: loadImage("images/quit.png")
@@ -50,8 +47,9 @@ function draw() {
   currentLevel.update();
   currentLevel.draw();
 
+
   if (!sounds.music.isPlaying()) {
-    sounds.music.play();
+    sounds.music.play().setVolume();
   }
 }
 
