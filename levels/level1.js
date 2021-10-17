@@ -30,7 +30,18 @@ function getDataLevel1() {
 
     checkpoints: [
       new Checkpoint(635, 95, 30, 30, images.star),
-      new Checkpoint(1160, -55, 30, 30, images.star)
+      new Checkpoint(1160, -55, 30, 30, images.star),
+      //Test checkpoints
+      new Checkpoint(800, 635, 30, 30, images.star),
+      new Checkpoint(900, 635, 30, 30, images.star),
+      new Checkpoint(1000, 635, 30, 30, images.star),
+      new Checkpoint(1100, 635, 30, 30, images.star),
+      new Checkpoint(1200, 635, 30, 30, images.star),
+      new Checkpoint(1300, 635, 30, 30, images.star),
+      new Checkpoint(1400, 635, 30, 30, images.star),
+      new Checkpoint(1500, 635, 30, 30, images.star),
+      new Checkpoint(1600, 635, 30, 30, images.star),
+      new Checkpoint(1700, 635, 30, 30, images.star)
     ],
 
     player: new Player(250, 600, 30, 30, images.player, 0.3, 8, 3)

@@ -33,7 +33,7 @@ class Level {
       new GUI(465, 197, 30, 30, images.star, false),
       new Label(380, 380, 340, 90, images.menubackground, true, false, "Volume:", 70),     //Volume text
       new SlideBar(380, 500, 340, 10, false, 5, [0,0,0], [255,0,0], 50, 1),          //Volume slidebar
-      new ProgressBar(40, 40, 230, 30, true, [48, 217, 252], [180, 180, 180], [0, 0, 0], 3, 50, 100),          //Xp progress bar
+      new ProgressBar(40, 40, 230, 30, true, [48, 217, 252], [180, 180, 180], [0, 0, 0], 3, xp, 100*lvl),          //Xp progress bar
       new Label(50, 47, 50, 20, null, false, true, "LVL "+lvl, 20)          //lvl label
     ];
   }
@@ -52,10 +52,12 @@ class Level {
 
     for (let checkpoint of this.checkpoints) {
       if (checkpoint.isColliding(this.player)) {
-        if (this.checkpointCoo.x != checkpoint.pos.x && this.checkpointCoo.y != checkpoint.pos.y) {
+        if (this.checkpointCoo.x != checkpoint.pos.x || this.checkpointCoo.y != checkpoint.pos.y) {
           this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
           this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
           sounds.checkpoint.play();
+          xp += 10;
+          this.updateXpBar();
         }
       }
     }
@@ -109,5 +111,17 @@ class Level {
     } else {
       currentLevel.godModEnable = true;
     }
+  }
+
+
+  updateXpBar() {
+    if (xp >= (100*lvl)) {
+      xp = xp-(100*lvl);
+      lvl += 1;
+    }
+    this.guis[10].setValue(xp);
+    this.guis[10].maxValue = 100*lvl;
+
+    this.guis[11].string = "LVL "+lvl
   }
 }
