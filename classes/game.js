@@ -56,8 +56,11 @@ class Level {
           this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
           this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
           sounds.checkpoint.play();
-          xp += 10;
-          this.updateXpBar();
+          if (!checkpoint.wasAlreadyTriggered) {
+            xp += 10;
+            this.updateXpBar();
+          }
+          checkpoint.wasAlreadyTriggered = true;
         }
       }
     }
