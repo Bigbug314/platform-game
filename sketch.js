@@ -2,6 +2,9 @@ let currentLevel;
 let images;
 let volume = 1;
 
+let xp = 0;
+let lvl = 1;
+
 function preload() {
   images = {
     player: loadImage("images/player.png"),

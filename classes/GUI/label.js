@@ -1,6 +1,7 @@
 class Label extends GUI {
-  constructor(x, y, w, h, img, isActive, string, fontSize) {
+  constructor(x, y, w, h, img, hasBackgroundImage, isActive, string, fontSize) {
     super(x, y, w, h, img, isActive);
+    this.hasBackgroundImage = hasBackgroundImage;
     this.string = string;
     this.fontSize = fontSize;
   }
@@ -8,8 +9,11 @@ class Label extends GUI {
   draw() {
     if (this.isActive) {
       push();
-      imageMode(CORNER);
-      image(this.img, this.pos.x, this.pos.y, this.size.x, this.size.y);
+      if (this.hasBackgroundImage) {
+        imageMode(CORNER);
+        image(this.img, this.pos.x, this.pos.y, this.size.x, this.size.y);
+      }
+      
       
       textAlign(CENTER, CENTER);
       textSize(this.fontSize);
