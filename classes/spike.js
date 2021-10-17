@@ -40,7 +40,7 @@ class Spike extends Sprite {
             else if (object.pos.y < y) {
                 let d = y - object.pos.y;
                 if (object.size.y > d) {
-                    return true
+                    return true;
                 }
             }
         }
