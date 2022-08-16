@@ -20,7 +20,22 @@ class Level {
 
     //God mode
     this.godModEnable = false;
-    this.godButton = new Button(0, 0, 50, 50, images.player, this.switchGodMode);
+    //GUI
+    this.isMenuEnable = false;
+    this.guis = [
+      new Button(10, 640, 50, 50, images.star, true, this.switchGodMode),          //God mode button
+      new Button(1020, 10, 70, 70, images.menu, true, menuButtonClicked),   //Menu button
+      new GUI(300, 50, 500, 600, images.menubackground, false),                 //Menu panel
+      new Button(380, 120, 340, 90, images.tutorialtext, false, tutorialClicked), //Tutorial button
+      new GUI(350, 50, 400, 600, images.menubackground, false),                         //Tutorial panel
+      new Button(690, 60, 50, 50, images.quit, false, quitTutorialClicked),         //Quit tutorial button
+      new Label(380, 120, 340, 90, images.menubackground, true, false, "Move: A/D\nJump: SPACE\nGo back to last checkpoint: E\n\n: Checkpoint", 20), //Tutorial
+      new GUI(465, 197, 30, 30, images.star, false),
+      new Label(380, 380, 340, 90, images.menubackground, true, false, "Volume:", 70),     //Volume text
+      new SlideBar(380, 500, 340, 10, false, 5, [0,0,0], [255,0,0], 50, 1),          //Volume slidebar
+      new ProgressBar(40, 40, 230, 30, true, [48, 217, 252], [180, 180, 180], [0, 0, 0], 3, xp, 100*lvl),          //Xp progress bar
+      new Label(50, 47, 50, 20, null, false, true, "LVL "+lvl, 20)          //lvl label
+    ];
   }
 
   update() {
@@ -37,11 +52,15 @@ class Level {
 
     for (let checkpoint of this.checkpoints) {
       if (checkpoint.isColliding(this.player)) {
-        if (this.checkpointCoo.x != checkpoint.pos.x && this.checkpointCoo.y != checkpoint.pos.y) {
+        if (this.checkpointCoo.x != checkpoint.pos.x || this.checkpointCoo.y != checkpoint.pos.y) {
           this.checkpointCoo = createVector(checkpoint.pos.x, checkpoint.pos.y);
           this.checkpointSelector.pos = createVector(checkpoint.pos.x, checkpoint.pos.y);
-          sounds.checkpoint.setVolume(0.3);
           sounds.checkpoint.play();
+          if (!checkpoint.wasAlreadyTriggered) {
+            xp += 10;
+            this.updateXpBar();
+          }
+          checkpoint.wasAlreadyTriggered = true;
         }
       }
     }
@@ -54,7 +73,7 @@ class Level {
     }
 
     //Move camera
-    this.cameraPosition.x = this.player.pos.x-250;
+    this.cameraPosition.x = this.player.pos.x-350;
     
     if (this.player.pos.y < 300) {
       this.cameraPosition.y = -this.player.pos.y + 300;
@@ -84,15 +103,28 @@ class Level {
 
 
     //Gui
-    this.godButton.draw();
+    for (let gui of this.guis) {
+      gui.draw();
+    }
   }
 
-   switchGodMode() {
-     if (currentLevel.godModEnable) {
-       currentLevel.godModEnable = false;
-     } else {
-       currentLevel.godModEnable = true;
-     }
-     console.log(currentLevel.godModEnable);
-   }
+  switchGodMode() {
+    if (currentLevel.godModEnable) {
+      currentLevel.godModEnable = false;
+    } else {
+      currentLevel.godModEnable = true;
+    }
+  }
+
+
+  updateXpBar() {
+    if (xp >= (100*lvl)) {
+      xp = xp-(100*lvl);
+      lvl += 1;
+    }
+    this.guis[10].setValue(xp);
+    this.guis[10].maxValue = 100*lvl;
+
+    this.guis[11].string = "LVL "+lvl
+  }
 }

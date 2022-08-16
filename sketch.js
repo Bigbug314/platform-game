@@ -1,5 +1,9 @@
 let currentLevel;
 let images;
+let volume = 1;
+
+let xp = 0;
+let lvl = 1;
 
 function preload() {
   images = {
@@ -11,6 +15,10 @@ function preload() {
     star: loadImage("images/star.png"),
     floor: loadImage("images/floor.png"),
     slime: loadImage("images/slime.png"),
+    menubackground: loadImage("images/white.png"),
+    tutorialtext: loadImage("images/tutorialtext.png"),
+    quit: loadImage("images/quit.png"),
+    menu: loadImage("images/menu.png"),
     spike: loadImage("images/spike.png"),
     redround: loadImage("images/red_round.png")
   }
@@ -30,10 +38,11 @@ function preload() {
 function setup() {
   createCanvas(1100, 700);
 
-  sounds.music.setVolume(0.05);
-  sounds.jump.setVolume(0.1);
-  sounds.slime.setVolume(0.8);
-  sounds.spike.setVolume(0.3);
+  sounds.music.setVolume(0.03*volume);
+  sounds.checkpoint.setVolume(0.3*volume);
+  sounds.jump.setVolume(0.1*volume);
+  sounds.slime.setVolume(0.5*volume);
+  sounds.spike.setVolume(0.3*volume);
 }
 
 
@@ -44,11 +53,29 @@ function draw() {
   currentLevel.update();
   currentLevel.draw();
 
+
   if (!sounds.music.isPlaying()) {
     sounds.music.play();
   }
 }
 
 function mouseClicked() {
-  currentLevel.godButton.update(createVector(mouseX,mouseY));
+  for (let gui of currentLevel.guis) {
+    gui.update(createVector(mouseX,mouseY));
+  }
+}
+
+function mouseDragged() {
+  currentLevel.guis[9].update();
+  volume = currentLevel.guis[9].getValue();
+  updateVolume();
+}
+
+
+function updateVolume() {
+  sounds.music.setVolume(0.03*volume);
+  sounds.checkpoint.setVolume(0.3*volume);
+  sounds.jump.setVolume(0.1*volume);
+  sounds.slime.setVolume(0.5*volume);
+  sounds.spike.setVolume(0.3*volume);
 }

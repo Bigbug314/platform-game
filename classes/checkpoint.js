@@ -1,6 +1,7 @@
 class Checkpoint extends Sprite {
     constructor(x, y, w, h, img) {
         super(x, y, w, h, img);
+        this.wasAlreadyTriggered = false;
     }
     
     isColliding(object) {

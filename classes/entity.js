@@ -141,4 +141,3 @@ class Entity extends Sprite {
     return false;
   }
 }
-
